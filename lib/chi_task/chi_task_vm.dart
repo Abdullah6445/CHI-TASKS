@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 class ChiTaskVM extends BaseViewModel {
@@ -9,6 +10,9 @@ class ChiTaskVM extends BaseViewModel {
     DataModel(name: "Daniyal", age: "23", city: "Islamabad"),
     DataModel(name: "Ahsan", age: "25", city: "Lahore"),
   ];
+  TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
 }
 
 class DataModel {

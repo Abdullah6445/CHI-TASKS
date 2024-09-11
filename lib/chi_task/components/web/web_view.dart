@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../chi_task_vm.dart';
+import '../../chi_task_vm.dart';
 
 class WebViewWidget extends StatelessWidget {
   ChiTaskVM vm;

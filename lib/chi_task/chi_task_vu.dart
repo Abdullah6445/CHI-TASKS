@@ -3,7 +3,7 @@ import 'package:stacked/stacked.dart';
 
 import 'chi_task_vm.dart';
 import 'components/mobile_view.dart';
-import 'components/web_view.dart';
+import 'components/web/web_view.dart';
 
 class ChiTaskVU extends StackedView<ChiTaskVM> {
   const ChiTaskVU({super.key});
