@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="chi_tasks"
+        android:label="AB CHI"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
