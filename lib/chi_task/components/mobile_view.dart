@@ -13,6 +13,13 @@ class MobileViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          vm.myDataList.add(DataModel(name: "ab", age: "21", city: "city"));
+          vm.notifyListeners();
+        },
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: const Text("Mobile View"),
       ),
@@ -22,7 +29,8 @@ class MobileViewWidget extends StatelessWidget {
           itemCount: vm.myDataList.length,
           itemBuilder: (context, index) {
             return Slidable(
-              endActionPane: ActionPane(motion: DrawerMotion(), children: [
+              endActionPane:
+                  ActionPane(motion: const DrawerMotion(), children: [
                 SlidableAction(
                   onPressed: (context) {
                     debugPrint("edit");
