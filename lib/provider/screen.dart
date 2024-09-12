@@ -21,7 +21,7 @@ class ProviderScreen extends StatelessWidget {
                     },
                   ));
                 },
-                child: Text("two"))
+                child: const Text("two"))
           ],
         ),
         floatingActionButton: Consumer<CounterController>(
