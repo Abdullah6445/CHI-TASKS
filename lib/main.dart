@@ -2,8 +2,6 @@ import 'package:chi_tasks/provider/counter_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'chi_task/chi_task_vu.dart';
-import 'practice/practice_page.dart';
 import 'provider/screen.dart';
 
 void main() {
