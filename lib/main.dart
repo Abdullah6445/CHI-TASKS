@@ -2,7 +2,9 @@ import 'package:chi_tasks/provider/counter_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'provider/screen.dart';
+import 'main_task/main_task_vu.dart';
+import 'practice/layout_practice.dart';
+import 'practice/page_two.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.green,
           useMaterial3: false,
         ),
-        home: const ProviderScreen(),
+        home: MainTaskVU(),
       ),
     );
   }
