@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 
 class FormFields extends StatelessWidget {
-  String hintText;
-  TextEditingController? fieldController;
-  TextInputType keyboard;
+  final String hintText;
+  final TextEditingController? fieldController;
+  final TextInputType keyboard;
+  // final numberInputFormatters;
+  // final FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+  // ];
 
-  FormFields(
-      {super.key,
-      required this.keyboard,
-      required this.hintText,
-      this.fieldController});
+  const FormFields({
+    super.key,
+    required this.keyboard,
+    required this.hintText,
+    this.fieldController,
+    // this.numberInputFormatters,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: TextFormField(
+        // inputFormatters: numberInputFormatters,
         validator: (value) {
           if (value!.trimLeft().isEmpty) {
             return "required";

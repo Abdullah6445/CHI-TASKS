@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../components/add_button.dart';
-import '../components/buld_icon.dart';
+import '../components/bulb_icon.dart';
 import '../components/card_list_view.dart';
 import '../components/form_field.dart';
 import '../components/mobile_image.dart';
@@ -9,51 +8,66 @@ import '../components/text_column.dart';
 import '../main_task_vm.dart';
 
 class MobileView extends StatelessWidget {
-  MainTaskVM vmm;
-  MobileView({super.key, required this.vmm});
+  final MainTaskVM viewModel;
+
+  const MobileView({super.key, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                viewModel.onShowFullList();
+              },
+              icon: const Icon(Icons.list_alt_outlined)),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(16.0),
           child: Form(
-            key: vmm.formKey,
+            key: viewModel.formKey,
             child: Column(
               children: [
                 const MobileImage(),
                 const TextColumn(),
-                BuldIcon(
-                  buldViewModel: vmm,
-                  buldIconFunction: () {},
+                BulbIcon(
+                  viewModel: viewModel,
                 ),
-                vmm.bulbIconCheck == true
+                viewModel.bulbIconCheck == true
                     ? Column(
                         children: [
                           FormFields(
-                            fieldController: vmm.nameController,
+                            fieldController: viewModel.nameController,
                             hintText: "Enter Name",
                             keyboard: TextInputType.name,
                           ),
                           FormFields(
-                            fieldController: vmm.ageController,
+                            // numberInputFormatters: [
+                            //   FilteringTextInputFormatter.allow(
+                            //       RegExp("[0-9]")),
+                            // ],
+                            fieldController: viewModel.ageController,
                             keyboard: TextInputType.number,
                             hintText: "Enter Age",
                           ),
                           AddButton(
-                            AddButtonFunction: () {
-                              vmm.onAdd();
+                            addButtonFunction: () {
+                              viewModel.onAdd();
                             },
                           ),
                         ],
                       )
                     : Container(
-                        height: MediaQuery.sizeOf(context).height / 4,
+                        height: MediaQuery.sizeOf(context).height * .01,
                       ),
                 SizedBox(
-                  height: MediaQuery.sizeOf(context).height,
-                  child: CardListView(vmm: vmm),
+                  height: viewModel.isFullList
+                      ? MediaQuery.sizeOf(context).height
+                      : MediaQuery.sizeOf(context).height / 2,
+                  child: CardListView(viewModel: viewModel),
                 )
               ],
             ),

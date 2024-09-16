@@ -12,7 +12,7 @@ class MainTaskVU extends StackedView<MainTaskVM> {
       builder: (context, constraints) {
         return constraints.maxWidth <= 600
             ? MobileView(
-                vmm: viewModel,
+                viewModel: viewModel,
               )
             : WebsiteView(
                 vmm: viewModel,

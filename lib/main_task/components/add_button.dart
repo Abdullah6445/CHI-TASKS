@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AddButton extends StatelessWidget {
-  VoidCallback AddButtonFunction;
+  final VoidCallback addButtonFunction;
 
-  AddButton({super.key, required this.AddButtonFunction});
+  const AddButton({super.key, required this.addButtonFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class AddButton extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
-            onPressed: AddButtonFunction, child: const Text("Add")),
+            onPressed: addButtonFunction, child: const Text("Save")),
       ),
     );
   }

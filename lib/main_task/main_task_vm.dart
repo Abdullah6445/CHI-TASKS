@@ -7,7 +7,231 @@ class MainTaskVM extends BaseViewModel {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  List<PersonModel> personList = [PersonModel(name: "abdullah", age: "22")];
+  bool isFullList = false;
+
+  void onShowFullList() {
+    isFullList = !isFullList;
+    notifyListeners();
+  }
+
+  List<PersonModel> personList = [
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+    PersonModel(
+      name: "abdullah",
+      age: "22",
+    ),
+  ];
 
   bool? bulbIconCheck = false;
 

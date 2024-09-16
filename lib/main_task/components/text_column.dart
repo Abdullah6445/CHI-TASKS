@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class TextColumn extends StatelessWidget {
   const TextColumn({
@@ -11,16 +12,22 @@ class TextColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Master flutter on the web",
+          "MASTER FLUTTER ON THE WEB",
           style: TextStyle(
-              fontSize: MediaQuery.sizeOf(context).height / 15,
+              fontSize: MediaQuery.sizeOf(context).height / 20,
               fontWeight: FontWeight.w900),
         ),
-        const Text("Master flutter on the web"),
-        const Text("Master flutter on the web"),
-        const Text("Master flutter on the web"),
-        const Text("Master flutter on the web"),
+        headingText(context,
+            title:
+                '- Advance Nested Layout\n- Production practices for Web\n- Complete guide on building forms\n- Build a real world example with Stacked'),
       ],
+    );
+  }
+
+  Widget headingText(BuildContext context, {required String title}) {
+    return Text(
+      title,
+      style: TextStyle(fontSize: MediaQuery.sizeOf(context).height * .03),
     );
   }
 }
