@@ -10,9 +10,9 @@ import '../components/text_column.dart';
 import '../main_task_vm.dart';
 
 class WebsiteView extends StatelessWidget {
-  final MainTaskVM vmm;
+  final MainTaskVM viewModel;
 
-  const WebsiteView({super.key, required this.vmm});
+  const WebsiteView({super.key, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -35,28 +35,31 @@ class WebsiteView extends StatelessWidget {
               ),
             ),
             BulbIcon(
-              viewModel: vmm,
+              viewModel: viewModel,
             ),
-            vmm.bulbIconCheck == true
+            const SizedBox(
+              height: 10,
+            ),
+            viewModel.bulbIconCheck == true
                 ? Column(
                     children: [
                       Form(
-                        key: vmm.formKey,
+                        key: viewModel.formKey,
                         child: Row(
                           children: [
                             Expanded(
                                 child: FormFields(
-                              fieldController: vmm.nameController,
+                              fieldController: viewModel.nameController,
                               hintText: "Enter Name",
                               keyboard: TextInputType.name,
                             )),
                             Expanded(
                               child: FormFields(
-                                // numberInputFormatters: [
-                                //   FilteringTextInputFormatter.allow(
-                                //       RegExp("[0-9]")),
-                                // ],
-                                fieldController: vmm.ageController,
+                                numberInputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp("[0-9]")),
+                                ],
+                                fieldController: viewModel.ageController,
                                 keyboard: TextInputType.number,
                                 hintText: "Enter Age",
                               ),
@@ -66,7 +69,7 @@ class WebsiteView extends StatelessWidget {
                       ),
                       AddButton(
                         addButtonFunction: () {
-                          vmm.onAdd();
+                          viewModel.onAdd();
                         },
                       ),
                     ],
@@ -76,7 +79,7 @@ class WebsiteView extends StatelessWidget {
                   ),
             SizedBox(
               height: MediaQuery.sizeOf(context).height,
-              child: CardListView(viewModel: vmm),
+              child: CardListView(viewModel: viewModel),
             )
           ],
         ),

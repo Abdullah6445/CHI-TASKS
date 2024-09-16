@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../components/add_button.dart';
 import '../components/bulb_icon.dart';
 import '../components/card_list_view.dart';
@@ -15,15 +16,6 @@ class MobileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                viewModel.onShowFullList();
-              },
-              icon: const Icon(Icons.list_alt_outlined)),
-        ],
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -36,6 +28,9 @@ class MobileView extends StatelessWidget {
                 BulbIcon(
                   viewModel: viewModel,
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 viewModel.bulbIconCheck == true
                     ? Column(
                         children: [
@@ -45,10 +40,10 @@ class MobileView extends StatelessWidget {
                             keyboard: TextInputType.name,
                           ),
                           FormFields(
-                            // numberInputFormatters: [
-                            //   FilteringTextInputFormatter.allow(
-                            //       RegExp("[0-9]")),
-                            // ],
+                            numberInputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp("[0-9]")),
+                            ],
                             fieldController: viewModel.ageController,
                             keyboard: TextInputType.number,
                             hintText: "Enter Age",
@@ -64,9 +59,7 @@ class MobileView extends StatelessWidget {
                         height: MediaQuery.sizeOf(context).height * .01,
                       ),
                 SizedBox(
-                  height: viewModel.isFullList
-                      ? MediaQuery.sizeOf(context).height
-                      : MediaQuery.sizeOf(context).height / 2,
+                  height: MediaQuery.sizeOf(context).height,
                   child: CardListView(viewModel: viewModel),
                 )
               ],

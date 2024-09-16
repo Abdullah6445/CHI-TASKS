@@ -4,16 +4,14 @@ class FormFields extends StatelessWidget {
   final String hintText;
   final TextEditingController? fieldController;
   final TextInputType keyboard;
-  // final numberInputFormatters;
-  // final FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-  // ];
+  final numberInputFormatters;
 
   const FormFields({
     super.key,
     required this.keyboard,
     required this.hintText,
     this.fieldController,
-    // this.numberInputFormatters,
+    this.numberInputFormatters,
   });
 
   @override
@@ -21,7 +19,7 @@ class FormFields extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: TextFormField(
-        // inputFormatters: numberInputFormatters,
+        inputFormatters: numberInputFormatters,
         validator: (value) {
           if (value!.trimLeft().isEmpty) {
             return "required";

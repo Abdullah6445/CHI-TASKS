@@ -11,15 +11,13 @@ class BulbIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: IconButton(
-        icon: const Icon(
-          Icons.lightbulb,
-          size: 40,
-        ),
-        color: viewModel.bulbIconCheck == true ? Colors.amber : Colors.grey,
-        onPressed: viewModel.buldHideFunction,
+    return IconButton(
+      icon: const Icon(
+        Icons.lightbulb,
+        size: 30,
       ),
+      color: viewModel.bulbIconCheck == true ? Colors.amber : Colors.grey,
+      onPressed: viewModel.buldHideFunction,
     );
   }
 }
