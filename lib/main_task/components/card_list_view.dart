@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import '../main_task_vm.dart';
 
 class CardListView extends StatelessWidget {
-  const CardListView({
-    super.key,
-    required this.viewModel,
-  });
+  const CardListView({super.key, required this.viewModel});
 
   final MainTaskVM viewModel;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       itemCount: viewModel.personList.length,
       itemBuilder: (context, index) {
         return Padding(

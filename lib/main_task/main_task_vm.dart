@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 class MainTaskVM extends BaseViewModel {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
-
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  bool bulbIconCheck = false;
 
   List<PersonModel> personList = [
     PersonModel(
@@ -14,21 +14,19 @@ class MainTaskVM extends BaseViewModel {
     ),
   ];
 
-  bool? bulbIconCheck = false;
-
   buldHideFunction() {
     bulbIconCheck = !bulbIconCheck!;
     notifyListeners();
   }
 
-  onAdd() {
+  void onAdd() {
     if (formKey.currentState!.validate()) {
       personList
           .add(PersonModel(name: nameController.text, age: ageController.text));
       notifyListeners();
+      nameController.clear();
+      ageController.clear();
     }
-    nameController.clear();
-    ageController.clear();
   }
 }
 

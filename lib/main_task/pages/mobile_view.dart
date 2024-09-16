@@ -31,37 +31,23 @@ class MobileView extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                viewModel.bulbIconCheck == true
-                    ? Column(
-                        children: [
-                          FormFields(
-                            fieldController: viewModel.nameController,
-                            hintText: "Enter Name",
-                            keyboard: TextInputType.name,
-                          ),
-                          FormFields(
-                            numberInputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp("[0-9]")),
-                            ],
-                            fieldController: viewModel.ageController,
-                            keyboard: TextInputType.number,
-                            hintText: "Enter Age",
-                          ),
-                          AddButton(
-                            addButtonFunction: () {
-                              viewModel.onAdd();
-                            },
-                          ),
-                        ],
-                      )
-                    : Container(
-                        height: MediaQuery.sizeOf(context).height * .01,
-                      ),
-                SizedBox(
-                  height: MediaQuery.sizeOf(context).height,
-                  child: CardListView(viewModel: viewModel),
-                )
+                if (viewModel.bulbIconCheck) ...[
+                  FormFields(
+                    fieldController: viewModel.nameController,
+                    hintText: "Enter Name",
+                    keyboard: TextInputType.name,
+                  ),
+                  FormFields(
+                    numberInputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                    ],
+                    fieldController: viewModel.ageController,
+                    keyboard: TextInputType.number,
+                    hintText: "Enter Age",
+                  ),
+                  AddButton(addButtonFunction: viewModel.onAdd),
+                ],
+                CardListView(viewModel: viewModel)
               ],
             ),
           ),

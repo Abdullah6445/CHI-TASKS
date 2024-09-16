@@ -40,47 +40,35 @@ class WebsiteView extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            viewModel.bulbIconCheck == true
-                ? Column(
-                    children: [
-                      Form(
-                        key: viewModel.formKey,
-                        child: Row(
-                          children: [
-                            Expanded(
-                                child: FormFields(
-                              fieldController: viewModel.nameController,
-                              hintText: "Enter Name",
-                              keyboard: TextInputType.name,
-                            )),
-                            Expanded(
-                              child: FormFields(
-                                numberInputFormatters: [
-                                  FilteringTextInputFormatter.allow(
-                                      RegExp("[0-9]")),
-                                ],
-                                fieldController: viewModel.ageController,
-                                keyboard: TextInputType.number,
-                                hintText: "Enter Age",
-                              ),
-                            ),
-                          ],
-                        ),
+            if (viewModel.bulbIconCheck) ...[
+              Form(
+                key: viewModel.formKey,
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: FormFields(
+                      fieldController: viewModel.nameController,
+                      hintText: "Enter Name",
+                      keyboard: TextInputType.name,
+                    )),
+                    Expanded(
+                      child: FormFields(
+                        numberInputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+                        ],
+                        fieldController: viewModel.ageController,
+                        keyboard: TextInputType.number,
+                        hintText: "Enter Age",
                       ),
-                      AddButton(
-                        addButtonFunction: () {
-                          viewModel.onAdd();
-                        },
-                      ),
-                    ],
-                  )
-                : Container(
-                    height: MediaQuery.sizeOf(context).height * .01,
-                  ),
-            SizedBox(
-              height: MediaQuery.sizeOf(context).height,
-              child: CardListView(viewModel: viewModel),
-            )
+                    ),
+                  ],
+                ),
+              ),
+              AddButton(
+                addButtonFunction: viewModel.onAdd,
+              ),
+            ],
+            CardListView(viewModel: viewModel)
           ],
         ),
       ),
